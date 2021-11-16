@@ -1,25 +1,41 @@
-#[derive(Debug)]
-enum IpAddr {
-    V4(u8, u8, u8, u8),
-    V6(String)
+use std::fmt;
+
+enum Message {
+    Quit,
+    Input (Option<i32>),
+    // Move {x: i32, y: i32},
+    Write (String),
+    ChangeColor (i32, i32, i32)
 }
 
-impl IpAddr {
-    fn Debug1(&self) -> String {
-        // &format!("{}.{}.{}.{}", self.0, self.1, self.2, self.3)
-        format!("{}",String::from("123"))
+impl fmt::Display for Message {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        match self {
+            Message::Quit => write!(f, "_"),
+            Message::Write(string) => write!(f, "'{}'", string),
+            Message::ChangeColor(i0, i1, i2) => write!(f, "{}.{}.{}", i0, i1, i2),
+            Message::Input(inp) => match inp {
+                Some(inp_i32) => write!(f, "i32:{}", inp_i32),
+                None => write!(f, "is None")
+            }
+        }
     }
 }
-fn route(ip: &IpAddr) -> String {
-    // &ip.address//.push_str(ip.address)
-    format!("'{:#?}'", &ip)
+
+fn is_important(mes: &Message) -> String {
+    if let Message::Quit = mes {
+        return String::from("yes")
+    }
+
+    String::from("no")
 }
 
 fn main() {
-    let ip_v4 = IpAddr::V4(127, 0, 0, 1);
-    let ip_v6 = IpAddr::V6(String::from("::1"));
+    println!("mes0 {}", Message::Quit);
+    println!("mes1 {}", Message::Write(String::from("555")));
+    println!("mes2 {}", Message::ChangeColor(1, 2, 3));
+    println!("mes3 {}", Message::Input(Some("5".parse::<i32>().unwrap())));
 
-    // println!("{}", ip_v6);
-    println!("{}", route(&ip_v4));
+    println!("imp {}", is_important(&Message::Quit));
 }
 
