@@ -12,7 +12,6 @@ fn main() {
         io::stdin()
             .read_line(&mut guess)
             .expect("error!");
-        // println!("you tape {}", guess);
         guess_num = match guess.trim().parse::<i32>() {
             Ok(num) => num,
             Err(_) => continue
