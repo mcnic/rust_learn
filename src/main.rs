@@ -13,7 +13,7 @@ fn main() {
         io::stdin()
             .read_line(&mut guess)
             .expect("error!");
-        let guess_num: i32 = match guess.trim().parse(){
+        let guess_num: i32 = match guess.trim().parse() {
             Ok(num) => num,
             Err(_) => continue
         };
@@ -25,7 +25,7 @@ fn main() {
             Ordering::Equal => {
                 println!("catch it!");
                 return;
-            },
+            }
         }
     }
 }
