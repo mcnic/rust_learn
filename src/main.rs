@@ -4,7 +4,7 @@ use std::cmp::Ordering;
 
 fn main() {
     let secret_number = rand::thread_rng().gen_range(1..101);
-    println!("sectet is {}\n", secret_number);
+    println!("secret is {}\n", secret_number);
 
     loop {
         println!("input number");
