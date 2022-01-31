@@ -3,15 +3,37 @@ struct Rectangle {
     width: u32
 }
 
-fn sq(r: &Rectangle) -> u32 {
-    r.height * r.width
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.height * self.width
+    }
+
+    fn can_hold(&self, rec2: &Rectangle) -> bool {
+        if self.width > rec2.width && self.height > rec2.height {
+            return true;
+        }
+        if self.width > rec2.height && self.height > rec2.width {
+            return true;
+        }
+        false
+    }
 }
 
 fn main() {
-    let r = Rectangle{
+    let r1 = Rectangle {
         height:10,
         width: 20
     };
+    let r2 = Rectangle {
+        height:5,
+        width: 10
+    };
+    let r3 = Rectangle {
+        height: 15,
+        width: 8
+    };
 
-    println!("square={}", sq(&r));
+    println!("area r1={}", r1.area());
+    println!("r1 can hold r2={}", r1.can_hold(&r2));
+    println!("r1 can hold r3={}", r1.can_hold(&r3));
 }
