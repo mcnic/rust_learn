@@ -1,17 +1,11 @@
 #[derive(Debug)]
-enum IpAddrKind {
-    V4,
-    V6
-}
-
-#[derive(Debug)]
-struct IpAddr {
-    kind: IpAddrKind,
-    address: String,
+enum IpAddr {
+    V4(String),
+    V6(String)
 }
 
 fn main() {
-    let ip_1 = IpAddr {address: String::from("2.2.2.2"), kind: IpAddrKind::V4};
-    let ip_2 = IpAddr {address: String::from(":::1"), kind: IpAddrKind::V6};
+    let ip_1 = IpAddr::V4(String::from("2.2.2.2"));
+    let ip_2 = IpAddr::V6(String::from(":::1"));
     println!("ip1 {:?}\nip_2 {:?}", ip_1, ip_2);
 }
