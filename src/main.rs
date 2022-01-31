@@ -1,3 +1,4 @@
+#[derive(Debug)]
 struct Rectangle {
     height: u32,
     width: u32
@@ -16,6 +17,13 @@ impl Rectangle {
             return true;
         }
         false
+    }
+
+    fn square(size: u32) -> Rectangle {
+        Rectangle {
+            width: size,
+            height: size
+        }
     }
 }
 
@@ -36,4 +44,8 @@ fn main() {
     println!("area r1={}", r1.area());
     println!("r1 can hold r2={}", r1.can_hold(&r2));
     println!("r1 can hold r3={}", r1.can_hold(&r3));
+
+    let r4 = Rectangle::square(10);
+
+    println!("r4={:?}", &r4);
 }
