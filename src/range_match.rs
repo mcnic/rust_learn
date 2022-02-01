@@ -2,7 +2,7 @@ use rand::Rng;
 use std::io;
 use std::cmp::Ordering;
 
-fn main() {
+pub fn test() {
     let secret_number = rand::thread_rng().gen_range(1..101);
     println!("input number\n");
     let mut guess_num: i32;

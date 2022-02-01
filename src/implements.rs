@@ -27,7 +27,7 @@ impl Rectangle {
     }
 }
 
-fn main() {
+pub fn test() {
     let r1 = Rectangle {
         height:10,
         width: 20

@@ -22,7 +22,7 @@ fn test_gcd() {
     assert_ne!(1, 2);
 }
 
-fn main() {
+pub fn test() {
     let mut numbers = Vec::new();
     for arg in std::env::args().skip(1) {
         numbers.push(u64::from_str(&arg).expect("error convert digit"));
