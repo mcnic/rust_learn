@@ -1,11 +1,16 @@
+#[derive(Debug)]
+enum MyType {
+    Str(String),
+    Int(i32)
+}
+
 fn main() {
-    let mut v1 = vec![1, 2, 4];
-    // let link_v1 = &v1[0];
-    // v1.push(2);
-    println!("{:?}", v1);
-    v1[0] = 10;
-    for i in &mut v1 {
-        *i += 50;
-    }
-    println!("vvv2 {:?}", v1);
+   let mut v1: Vec<MyType> = vec![
+       MyType::Int(1),
+       MyType::Int(2),
+       MyType::Int(4),
+       MyType::Str(String::from("str"))
+   ];
+   v1.push(MyType::Int(2));
+   println!("{:#?}", v1);
 }
