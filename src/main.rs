@@ -1,16 +1,7 @@
-#[derive(Debug)]
-enum MyType {
-    Str(String),
-    Int(i32)
-}
-
 fn main() {
-   let mut v1: Vec<MyType> = vec![
-       MyType::Int(1),
-       MyType::Int(2),
-       MyType::Int(4),
-       MyType::Str(String::from("str"))
-   ];
-   v1.push(MyType::Int(2));
-   println!("{:#?}", v1);
+    let mut s1 = String::from("строка");
+    s1.push('Я');
+    let s2 = &s1[..];
+    let s3 =  "еще строка".to_string() + &s1;
+    println!("{}-{}-{}", s1, s2, s3);
 }
