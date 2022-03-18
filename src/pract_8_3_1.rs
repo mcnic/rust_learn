@@ -41,4 +41,9 @@ fn test_get_data_of_list() {
     let res = get_data_of_list(&mut vec);
     // println!("{:?}", &res);
     assert_eq!(res, (43.45454545454545, 27, 3));
+
+    let mut vec = vec![90, 101, 10, 10, 10, 80, 20, 20, 40, 20, 27, 10, 10];
+    let res = get_data_of_list(&mut vec);
+    // println!("{:?}", &res);
+    assert_eq!(res, (34.46153846153846, 20, 5));
 }
