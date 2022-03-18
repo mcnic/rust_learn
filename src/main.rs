@@ -1,9 +1,21 @@
-mod pract_8_3_1;
+fn largest(list: &[i32]) -> i32 {
+    if list.len() == 0 {
+        return 0;
+    }
 
-use pract_8_3_1::get_data_of_list;
+    let mut larg = list[0];
+    for i in list {
+        if i > &larg {
+            larg = *i;
+        }
+    }
+
+    larg
+}
+
 
 fn main() {
-    let mut vec = vec![90, 101, 10, 10, 10, 80, 20, 20, 40, 20, 27, 10, 10];
-    let res = get_data_of_list(&mut vec);
-    println!("{:?}", res);
+    let list_1 = [5, 10, 2, 100, 1];
+    let max_1 = largest(&list_1);
+    println!("max1={:?}", max_1);
 }
