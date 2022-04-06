@@ -1,8 +1,6 @@
-// trait MyTrait {
-// }
-
 fn largest<T>(list: &[T]) -> &T
-    where T: PartialOrd {
+    where T: PartialOrd
+{
     let mut larg = &list[0];
     for i in list {
         if i > &larg {
@@ -12,7 +10,6 @@ fn largest<T>(list: &[T]) -> &T
 
     larg
 }
-
 
 fn main() {
     let list_1 = [5, 10, 2, 100, 1];
